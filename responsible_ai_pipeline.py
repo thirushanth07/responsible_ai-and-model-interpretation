@@ -29,7 +29,8 @@ def load_dataset():
     X = data.data.copy()
     y = data.target.copy()
 
-    # Synthetic sensitive group for fairness analysis.
+    # The dataset has no protected attribute, so this uses a feature-based split
+    # only as a proxy group for demonstration of fairness metric workflows.
     sensitive_group = (X["mean radius"] > X["mean radius"].median()).astype(int)
     sensitive_group.name = "sensitive_group"
 
